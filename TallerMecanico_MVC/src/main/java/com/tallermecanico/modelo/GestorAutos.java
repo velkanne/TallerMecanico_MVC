@@ -97,37 +97,40 @@ public class GestorAutos {
      */
     private void cargarCatalogoJDM() {
         logger.info("Cargando catálogo JDM iconic cars...");
-        
+
         // Nissan Skyline GT-R
-        AutoDeportivo skylineR34 = new Auto Deportivo(AutoDeportivo.MarcaJDM.NISSAN, "Skyline GT-R R34", 1999, "RB26DETT", "DEMO-001");
+        AutoDeportivo skylineR34 = new AutoDeportivo(AutoDeportivo.MarcaJDM.NISSAN, "Skyline GT-R R34", 1999,
+                "RB26DETT", "DEMO-001");
         skylineR34.setPotenciaHP(280);
         autos.add(skylineR34);
-        
+
         // Toyota Supra
-        AutoDeportivo supra = new AutoDeportivo(AutoDeportivo.MarcaJDM.TOYOTA, "Supra A80", 1993, "2JZ-GTE", "DEMO-002");
+        AutoDeportivo supra = new AutoDeportivo(AutoDeportivo.MarcaJDM.TOYOTA, "Supra A80", 1993, "2JZ-GTE",
+                "DEMO-002");
         supra.setPotenciaHP(320);
         autos.add(supra);
-        
+
         // Mazda RX-7
         AutoDeportivo rx7 = new AutoDeportivo(AutoDeportivo.MarcaJDM.MAZDA, "RX-7 FD", 1993, "13B-REW", "DEMO-003");
         rx7.setPotenciaHP(255);
         autos.add(rx7);
-        
+
         // Honda NSX
         AutoDeportivo nsx = new AutoDeportivo(AutoDeportivo.MarcaJDM.HONDA, "NSX NA1", 1990, "C30A", "DEMO-004");
         nsx.setPotenciaHP(270);
         autos.add(nsx);
-        
+
         // Subaru WRX STI
         AutoDeportivo wrx = new AutoDeportivo(AutoDeportivo.MarcaJDM.SUBARU, "WRX STI", 2004, "EJ257", "DEMO-005");
         wrx.setPotenciaHP(300);
         autos.add(wrx);
-        
+
         // Mitsubishi Lancer Evolution
-        AutoDeportivo evo = new AutoDeportivo(AutoDeportivo.MarcaJDM.MITSUBISHI, "Lancer Evolution IX", 2005, "4G63T", "DEMO-006");
+        AutoDeportivo evo = new AutoDeportivo(AutoDeportivo.MarcaJDM.MITSUBISHI, "Lancer Evolution IX", 2005, "4G63T",
+                "DEMO-006");
         evo.setPotenciaHP(286);
         autos.add(evo);
-        
+
         logger.info("Catálogo JDM cargado: {} autos icónicos", autos.size());
         guardarDatos();
     }

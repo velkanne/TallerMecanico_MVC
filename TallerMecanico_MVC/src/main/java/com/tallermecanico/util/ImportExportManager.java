@@ -94,7 +94,7 @@ public class ImportExportManager {
         if (datos == null)
             return false;
 
-        boolean esValido = datos.containsKey("exportDate") && dados.containsKey("version");
+        boolean esValido = datos.containsKey("exportDate") && datos.containsKey("version");
 
         if (esValido) {
             logger.info("Exportación válida - Version: {}, Fecha: {}",
