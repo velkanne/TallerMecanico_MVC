@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama UML - TallerMecanico MVC</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1d 0%, #2d2d35 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(227, 30, 36, 0.5);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #e31e24, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #aaa;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .info-badge {
+            display: inline-block;
+            background: rgba(0, 119, 200, 0.2);
+            border: 1px solid #0077c8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            color: #0077c8;
+        }
+        
+        .diagram-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .diagram-title {
+            color: #1a1a1d;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e31e24;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+        }
+        
+        .mermaid {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        
+        .legend {
+            background: rgba(227, 30, 36, 0.1);
+            border-left: 4px solid #e31e24;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        
+        .legend h3 {
+            color: #e31e24;
+            margin-bottom: 10px;
+        }
+        
+        .legend ul {
+            color: #333;
+            list-style-position: inside;
+        }
+        
+        .legend li {
+            margin: 5px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(227, 30, 36, 0.2), rgba(255, 107, 53, 0.2));
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(227, 30, 36, 0.3);
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #e31e24;
+        }
+        
+        .stat-label {
+            color: #ddd;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ TallerMecanico MVC - Diagrama UML</h1>
+            <p class="subtitle">Japanese Domestic Market Tuning Shop</p>
+            <div>
+                <span class="info-badge">📦 Patrón MVC</span>
+                <span class="info-badge">☕ Java</span>
+                <span class="info-badge">🎨 Swing UI</span>
+                <span class="info-badge">💾 Persistencia JSON</span>
+            </div>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Clases Principales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Capas MVC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2</div>
+                <div class="stat-label">Clases Utilidad</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1</div>
+                <div class="stat-label">Modelo de Datos</div>
+            </div>
+        </div>
+
+        <!-- Diagrama de Clases Completo -->
+        <div class="diagram-section">
+            <h2 class="diagram-title">
+                <span class="icon">🏗️</span>
+                Diagrama de Clases Completo
+            </h2>
+            <div class="mermaid">
+classDiagram
+    %% Clases principales
+    class Main {
+        -Logger logger$
+        +main(String[] args)$ void
+        -configurarPropiedadesSistema()$ void
+        -configurarLookAndFeel()$ void
+        -configurarLookAndFeelFallback()$ void
+        -mostrarErrorInicio(Exception e)$ void
+    }
+
+    class OrdenTrabajo {
+        -String patente
+        -String modeloAuto
+        -String servicio
+        -String urgencia
+        -boolean clienteEspera
+        -String observaciones
+        +OrdenTrabajo()
+        +OrdenTrabajo(String, String, String, String, boolean, String)
+        +getPatente() String
+        +setPatente(String patente) void
+        +getModeloAuto() String
+        +setModeloAuto(String modeloAuto) void
+        +getServicio() String
+        +setServicio(String servicio) void
+        +getUrgencia() String
+        +setUrgencia(String urgencia) void
+        +isClienteEspera() boolean
+        +setClienteEspera(boolean clienteEspera) void
+        +getObservaciones() String
+        +setObservaciones(String observaciones) void
+        +esValida() boolean
+        +esAltaPrioridad() boolean
+        +copiar() OrdenTrabajo
+        +equals(Object o) boolean
+        +hashCode() int
+        +toString() String
+    }
+
+    class GestorOrdenes {
+        -Logger logger$
+        -List~OrdenTrabajo~ ordenes
+        -String ARCHIVO_DATOS$
+        -Gson gson
+        +GestorOrdenes()
+        +agregarOrden(OrdenTrabajo orden) void
+        +modificarOrden(int indice, OrdenTrabajo ordenActualizada) boolean
+        +eliminarOrden(int indice) boolean
+        +obtenerOrdenes() List~OrdenTrabajo~
+        +obtenerOrden(int indice) OrdenTrabajo
+        +buscarPorPatente(String patente) List~OrdenTrabajo~
+        +filtrarPorUrgencia(String urgencia) List~OrdenTrabajo~
+        +filtrarPorServicio(String servicio) List~OrdenTrabajo~
+        +getCantidadOrdenes() int
+        +contarPorUrgencia(String urgencia) int
+        +contarClientesEspera() int
+        +guardarDatos() void
+        -cargarDatos() void
+    }
+
+    class ControladorTaller {
+        -Logger logger$
+        -GestorOrdenes gestorOrdenes
+        +ControladorTaller()
+        +agregarOrden(String, String, String, String, boolean, String) boolean
+        +modificarOrden(int, String, String, String, String, boolean, String) boolean
+        +eliminarOrden(int indice) void
+        +obtenerTodasLasOrdenes() List~OrdenTrabajo~
+        +obtenerOrden(int indice) OrdenTrabajo
+        +buscarPorPatente(String patente) List~OrdenTrabajo~
+        +filtrarPorUrgencia(String urgencia) List~OrdenTrabajo~
+        +filtrarPorServicio(String servicio) List~OrdenTrabajo~
+        +getCantidadOrdenes() int
+        +obtenerEstadisticas() Map~String, Integer~
+        -validarDatos(String patente, String modeloAuto) boolean
+        -mostrarError(String mensaje) void
+        +guardarDatos() void
+    }
+
+    class MainView {
+        -ControladorTaller controlador
+        -JTable tablaOrdenes
+        -DefaultTableModel modeloTabla
+        -JTextField txtPatente
+        -JTextField txtModelo
+        -JComboBox~String~ cmbServicio
+        -JComboBox~String~ cmbUrgencia
+        -JCheckBox chkClienteEspera
+        -JTextArea txtObservaciones
+        -JButton btnAgregar
+        -JButton btnModificar
+        -JButton btnEliminar
+        -JButton btnLimpiar
+        -JTextField txtBuscarPatente
+        -JComboBox~String~ cmbFiltroUrgencia
+        -JComboBox~String~ cmbFiltroServicio
+        -JLabel lblTotalOrdenes
+        -JLabel lblOrdenesNormales
+        -JLabel lblOrdenesUrgentes
+        -JLabel lblOrdenesCriticas
+        -JLabel lblClientesEspera
+        -int indiceModificando
+        -boolean modoModificacion
+        +MainView()
+        -inicializarComponentes() void
+        -crearPanelSuperior() JPanel
+        -crearMenuBar() JMenuBar
+        -crearPanelBusqueda() JPanel
+        -crearPanelFormulario() JPanel
+        -crearPanelTabla() JPanel
+        -crearPanelEstadisticas() JPanel
+        -agregarOModificarOrden() void
+        -prepararModificacion() void
+        -eliminarOrden() void
+        -limpiarFormulario() void
+        -aplicarFiltros() void
+        -limpiarFiltros() void
+        -actualizarTabla() void
+        -actualizarTablaConLista(List~OrdenTrabajo~ ordenes) void
+        -actualizarEstadisticas() void
+    }
+
+    class UIConstants {
+        +Color COLOR_ROJO_RACING$
+        +Color COLOR_NEGRO_CARBONO$
+        +Color COLOR_BLANCO$
+        +Color COLOR_GRIS_METAL$
+        +Color COLOR_NARANJA_TURBO$
+        +Color COLOR_AZUL_NITRO$
+        +Color COLOR_NORMAL$
+        +Color COLOR_URGENTE$
+        +Color COLOR_CRITICO$
+        +Dimension DIM_VENTANA$
+        +Dimension DIM_MINIMA$
+        +Font FONT_TITULO_JDM$
+        +Font FONT_SUBTITULO$
+        +String ICON_AUTO$
+        +String ICON_ORDEN$
+        +String MSG_CONFIRMAR_ELIMINAR$
+        +String TITULO_APP$
+    }
+
+    class ValidadorPatente {
+        -String PATRON_ANTIGUO$
+        -String PATRON_NUEVO$
+        -Pattern REGEX_ANTIGUO$
+        -Pattern REGEX_NUEVO$
+        +validar(String patente)$ boolean
+        +obtenerTipo(String patente)$ TipoPatente
+        +esFormatoAntiguo(String patente)$ boolean
+        +esFormatoNuevo(String patente)$ boolean
+        +getMensajeFormato()$ String
+        +normalizar(String patente)$ String
+        +formatear(String patente)$ String
+        +obtenerInfo(String patente)$ String
+    }
+
+    class TipoPatente {
+        <<enumeration>>
+        ANTIGUO
+        NUEVO
+        INVALIDO
+        -String descripcion
+        +getDescripcion() String
+    }
+
+    %% Relaciones
+    Main ..> MainView : crea
+    MainView --> ControladorTaller : usa
+    MainView ..> UIConstants : referencia
+    ControladorTaller --> GestorOrdenes : gestiona
+    ControladorTaller ..> ValidadorPatente : valida
+    GestorOrdenes "1" o-- "*" OrdenTrabajo : contiene
+    ValidadorPatente +-- TipoPatente : define
+            </div>
+            <div class="legend">
+                <h3>📋 Leyenda de Relaciones</h3>
+                <ul>
+                    <li><strong>--&gt;</strong> Asociación: Una clase usa otra</li>
+                    <li><strong>..&gt;</strong> Dependencia: Una clase depende de otra</li>
+                    <li><strong>o--</strong> Agregación: Una clase contiene otra</li>
+                    <li><strong>+--</strong> Composición: Una clase define otra</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Diagrama de Arquitectura MVC -->
+        <div class="diagram-section">
+            <h2 class="diagram-title">
+                <span class="icon">🎯</span>
+                Arquitectura MVC
+            </h2>
+            <div class="mermaid">
+graph TB
+    subgraph Vista["🎨 VISTA (View)"]
+        Main["Main<br/><small>Punto de entrada</small>"]
+        MainView["MainView<br/><small>Interfaz gráfica</small>"]
+        UIConstants["UIConstants<br/><small>Constantes UI</small>"]
+    end
+    
+    subgraph Controlador["🎮 CONTROLADOR (Controller)"]
+        ControladorTaller["ControladorTaller<br/><small>Lógica de negocio</small>"]
+    end
+    
+    subgraph Modelo["📦 MODELO (Model)"]
+        OrdenTrabajo["OrdenTrabajo<br/><small>Entidad de dominio</small>"]
+        GestorOrdenes["GestorOrdenes<br/><small>Gestión CRUD</small>"]
+    end
+    
+    subgraph Utilidades["🔧 UTILIDADES"]
+        ValidadorPatente["ValidadorPatente<br/><small>Validación</small>"]
+    end
+    
+    Main -->|inicia| MainView
+    MainView -->|eventos| ControladorTaller
+    ControladorTaller -->|manipula| GestorOrdenes
+    GestorOrdenes -->|gestiona| OrdenTrabajo
+    ControladorTaller -->|actualiza| MainView
+    ControladorTaller -.->|valida| ValidadorPatente
+    MainView -.->|usa estilos| UIConstants
+    
+    style Vista fill:#e31e24,stroke:#fff,stroke-width:2px,color:#fff
+    style Controlador fill:#ff6b35,stroke:#fff,stroke-width:2px,color:#fff
+    style Modelo fill:#0077c8,stroke:#fff,stroke-width:2px,color:#fff
+    style Utilidades fill:#4a4a4f,stroke:#fff,stroke-width:2px,color:#fff
+            </div>
+        </div>
+
+        <!-- Diagrama de Flujo de Datos -->
+        <div class="diagram-section">
+            <h2 class="diagram-title">
+                <span class="icon">🔄</span>
+                Flujo de Datos - Agregar Orden
+            </h2>
+            <div class="mermaid">
+sequenceDiagram
+    actor Usuario
+    participant MainView
+    participant ControladorTaller
+    participant ValidadorPatente
+    participant GestorOrdenes
+    participant OrdenTrabajo
+    participant JSON
+
+    Usuario->>MainView: Completa formulario
+    Usuario->>MainView: Click "Agregar"
+    MainView->>ControladorTaller: agregarOrden(datos)
+    ControladorTaller->>ValidadorPatente: validar(patente)
+    ValidadorPatente-->>ControladorTaller: resultado validación
+    
+    alt Validación exitosa
+        ControladorTaller->>OrdenTrabajo: new OrdenTrabajo(datos)
+        OrdenTrabajo-->>ControladorTaller: orden creada
+        ControladorTaller->>GestorOrdenes: agregarOrden(orden)
+        GestorOrdenes->>GestorOrdenes: ordenes.add(orden)
+        GestorOrdenes->>JSON: guardarDatos()
+        JSON-->>GestorOrdenes: guardado exitoso
+        GestorOrdenes-->>ControladorTaller: true
+        ControladorTaller-->>MainView: true
+        MainView->>MainView: actualizarTabla()
+        MainView->>MainView: limpiarFormulario()
+        MainView-->>Usuario: Orden agregada ✓
+    else Validación fallida
+        ControladorTaller->>MainView: mostrarError()
+        MainView-->>Usuario: Error de validación ✗
+    end
+            </div>
+        </div>
+
+        <!-- Diagrama de Estados -->
+        <div class="diagram-section">
+            <h2 class="diagram-title">
+                <span class="icon">⚙️</span>
+                Estados de OrdenTrabajo
+            </h2>
+            <div class="mermaid">
+stateDiagram-v2
+    [*] --> Nueva: Usuario crea orden
+    Nueva --> Validando: Enviar datos
+    
+    Validando --> Rechazada: Validación fallida
+    Validando --> Registrada: Validación exitosa
+    
+    Rechazada --> Nueva: Corregir datos
+    
+    Registrada --> EnModificacion: Usuario edita
+    Registrada --> Eliminada: Usuario elimina
+    
+    EnModificacion --> Validando: Guardar cambios
+    EnModificacion --> Registrada: Cancelar edición
+    
+    Eliminada --> [*]
+    
+    note right of Validando
+        ValidadorPatente verifica:
+        - Formato de patente
+        - Campos requeridos
+        - Datos válidos
+    end note
+    
+    note right of Registrada
+        Estados de urgencia:
+        - Normal (verde)
+        - Urgente (naranja)
+        - Crítico (rojo)
+    end note
+            </div>
+        </div>
+
+        <footer>
+            <p>⚡ VELOCITY JDM GARAGE - TallerMecanico MVC v2.0</p>
+            <p>Generado automáticamente | Patrón MVC | Persistencia JSON | Logging SLF4J</p>
+        </footer>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#e31e24',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#ff6b35',
+                lineColor: '#4a4a4f',
+                secondaryColor: '#0077c8',
+                tertiaryColor: '#ff6b35'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 20
+            },
+            sequence: {
+                actorMargin: 50,
+                noteMargin: 10,
+                messageMargin: 35
+            }
+        });
+    </script>
+</body>
+</html>
